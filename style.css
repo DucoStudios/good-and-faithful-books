@@ -7,7 +7,7 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
-img{max-width:100%;display:block}
+img{max-width:100%;height:auto;display:block}
 a{color:var(--blue)}
 h1,h2,h3{font-family:var(--serif);line-height:1.15;margin:0 0 .5em;font-weight:700;letter-spacing:-.01em}
 h1{font-size:clamp(2.1rem,5.5vw,3.6rem)}
@@ -167,3 +167,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   .mobile-cta.show{transform:none}
   .mobile-cta.show.hidden{transform:translateY(140%)}
 }
+
+/* hjältebilden: behåll proportionerna 2:3 på alla skärmar */
+.hero-art img{width:100%;height:auto;aspect-ratio:2/3;object-fit:cover}
