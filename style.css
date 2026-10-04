@@ -84,7 +84,7 @@ section{padding:72px 0}
 .free{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
 .free ul{padding-left:0;list-style:none}
 .free li{padding-left:34px;position:relative;margin-bottom:10px}
-.free li:before{content:"✓";position:absolute;left:0;top:0;width:24px;height:24px;border-radius:50%;background:var(--gold);color:var(--ink);display:grid;place-items:center;font-weight:900;font-size:.8rem}
+.free li:before{content:"\f00c";font-family:"Font Awesome 6 Free";position:absolute;left:0;top:0;width:24px;height:24px;border-radius:50%;background:var(--gold);color:var(--ink);display:grid;place-items:center;font-weight:900;font-size:.8rem}
 @media (max-width:860px){.free{grid-template-columns:1fr}}
 form.optin{background:var(--paper);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);color:var(--ink)}
 form.optin label{display:block;font-weight:800;font-size:.9rem;margin:0 0 6px}
