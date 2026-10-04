@@ -120,3 +120,50 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   .hero-art .badge{left:-8px}
   section{padding:52px 0}
 }
+
+/* ---------- mobilversion ---------- */
+.mobile-cta{display:none}
+@media (max-width:640px){
+  body{font-size:17px}
+  .wrap{padding:0 16px}
+  .hero{padding:24px 0 40px}
+  .hero .wrap{display:flex;flex-direction:column;gap:22px}
+  .hero-art{order:-1;max-width:250px;margin:0 auto}
+  .hero-art img{transform:rotate(1.5deg)}
+  .hero-art .badge{left:-28px;bottom:16px;padding:8px 12px;font-size:.78rem;max-width:170px}
+  .hero-art .badge em{font-size:.95rem}
+  .hero h1{font-size:2.05rem;text-align:center}
+  .hero .eyebrow{text-align:center}
+  .hero p.lead{font-size:1.02rem;text-align:center}
+  .hero .ctas{flex-direction:column;margin-top:18px}
+  .hero .ctas .btn{text-align:center}
+  section{padding:44px 0}
+  .story blockquote{font-size:1.35rem}
+  /* sigillen som lista */
+  .seals{display:flex;flex-direction:column;gap:14px;margin-top:24px}
+  .seal-item{display:flex;align-items:center;gap:14px;text-align:left}
+  .seal-item .wax{width:46px;height:46px;font-size:1.05rem;margin:0;flex-shrink:0}
+  .seal-item b{font-size:1.05rem}
+  /* bokhyllan som karusell */
+  .shelf{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;margin:24px -16px 0;padding:0 16px 12px;-webkit-overflow-scrolling:touch}
+  .shelf .book{flex:0 0 62%;scroll-snap-align:start}
+  .shelf::-webkit-scrollbar{display:none}
+  .grid3{gap:14px}
+  .card{padding:20px}
+  form.optin{padding:20px}
+  .play .stand img{height:190px!important}
+  details{padding:14px 16px}
+  footer .wrap{flex-direction:column;gap:8px;text-align:center}
+  footer{padding-bottom:96px}
+  .mobile-cta{display:block;position:fixed;left:16px;right:16px;bottom:14px;z-index:20;text-align:center;transition:transform .25s}
+  .mobile-cta.hidden{transform:translateY(140%)}
+}
+@media (max-width:640px){
+  .hero-art{order:0;max-width:220px}
+  .seal-item{display:grid;grid-template-columns:46px 1fr;column-gap:14px;align-items:center}
+  .seal-item .wax{grid-row:span 2}
+  .seal-item span{grid-column:2}
+  .mobile-cta{transform:translateY(140%)}
+  .mobile-cta.show{transform:none}
+  .mobile-cta.show.hidden{transform:translateY(140%)}
+}

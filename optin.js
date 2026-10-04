@@ -22,3 +22,12 @@ document.getElementById("optin").addEventListener("submit", function (e) {
     btn.disabled = false; btn.textContent = "Send me the free pack";
   });
 });
+
+// Mobil: dölj den fasta knappen när formuläret syns.
+(function(){
+  var cta = document.querySelector(".mobile-cta"), free = document.getElementById("free");
+  if (!cta || !free || !("IntersectionObserver" in window)) return;
+  var hero = document.querySelector(".hero");
+  if (hero) new IntersectionObserver(function(es){ cta.classList.toggle("show", !es[0].isIntersecting); }, {threshold:0}).observe(hero);
+  new IntersectionObserver(function(es){ cta.classList.toggle("hidden", es[0].isIntersecting); }, {threshold:0.15}).observe(free);
+})();
