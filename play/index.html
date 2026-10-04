@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Penny's Lemonade Stand | Good &amp; Faithful Books</title>
+<meta name="description" content="A free lemonade stand game for kids from Penny and the Golden Notebook. No ads, no logins, no tracking.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ccircle cx=%2250%22 cy=%2250%22 r=%2246%22 fill=%22%23B5392E%22/%3E%3Ctext x=%2250%22 y=%2266%22 font-size=%2248%22 text-anchor=%22middle%22 fill=%22%23FCE3C8%22 font-family=%22Georgia%22%3EG%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#E9B44C;--gold-soft:#F6DFA8;--orange:#D9662B;--blue:#2F5D7C;--cream:#FFF8EC;--paper:#FFFDF8;--ink:#3B2A1E;--muted:#6E5B4C;--line:#EADCC4;--green:#4E8A4A;--red:#B5452F}
+*{box-sizing:border-box}
+html,body{height:100%;overflow:hidden;overscroll-behavior:none;margin:0}
+body{background:linear-gradient(#BFE3F2 0%,#E6F4F9 55%,#F2E3BF 55%,#EBD49E 100%);color:var(--ink);font-family:"Nunito",system-ui,sans-serif;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
+.page{height:100vh;height:100dvh;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;display:flex;flex-direction:column}
+.top{display:flex;justify-content:space-between;align-items:center;padding:10px 16px;background:rgba(255,253,248,.85);border-bottom:1px solid var(--line);flex-shrink:0}
+.top a{color:var(--ink);text-decoration:none;font-weight:800;font-size:.9rem}
+.stats{display:flex;gap:14px;font-weight:900;font-size:.95rem}
+.stats span{background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:4px 12px}
+main{flex:1;display:flex;align-items:flex-start;justify-content:center;padding:18px 14px 28px}
+.card{background:var(--paper);border-radius:22px;box-shadow:0 12px 30px rgba(59,42,30,.15);padding:22px;width:100%;max-width:560px}
+h1,h2{font-family:"Fraunces",Georgia,serif;margin:0 0 10px;line-height:1.15}
+h1{font-size:1.9rem}
+h2{font-size:1.45rem}
+p{margin:0 0 12px;line-height:1.55}
+.muted{color:var(--muted)}
+.intro{display:flex;gap:16px;align-items:flex-end}
+.intro img{width:110px;flex-shrink:0}
+.btn{display:block;width:100%;background:var(--orange);color:#fff;border:0;border-radius:999px;padding:14px 18px;font:900 1.05rem "Nunito",sans-serif;cursor:pointer;box-shadow:0 5px 0 #A9471A;margin-top:14px;touch-action:manipulation}
+.btn:active{transform:translateY(4px);box-shadow:0 1px 0 #A9471A}
+.btn.alt{background:var(--blue);box-shadow:0 5px 0 #1D3D54}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 2px var(--line)}
+.btn:disabled{opacity:.45}
+.weather{display:flex;align-items:center;gap:14px;background:var(--cream);border-radius:16px;padding:12px 14px;margin-bottom:14px}
+.weather .ic{font-size:2.4rem}
+.row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px dashed var(--line)}
+.row:last-child{border-bottom:0}
+.row .lbl b{display:block}
+.row .lbl small{color:var(--muted)}
+.stepper{display:flex;align-items:center;gap:8px}
+.stepper button{width:38px;height:38px;border-radius:50%;border:2px solid var(--line);background:#fff;font:900 1.2rem "Nunito";color:var(--ink);cursor:pointer;touch-action:manipulation}
+.stepper output{min-width:56px;text-align:center;font-weight:900;font-size:1.1rem}
+.section-title{font-weight:900;text-transform:uppercase;letter-spacing:.1em;font-size:.75rem;color:var(--orange);margin:16px 0 4px}
+.taste{height:10px;border-radius:999px;background:var(--line);overflow:hidden;margin-top:6px}
+.taste i{display:block;height:100%;background:linear-gradient(90deg,var(--red),var(--gold),var(--green));transition:width .3s}
+.note{background:#FFF3D6;border-left:4px solid var(--gold);border-radius:10px;padding:12px 14px;font-family:"Fraunces",serif;font-style:italic;margin:14px 0}
+.event{background:var(--cream);border-radius:16px;padding:16px;margin:12px 0}
+.event .who{font-size:2rem}
+.choices{display:grid;gap:8px;margin-top:8px}
+.street{position:relative;height:120px;background:linear-gradient(#E9F5FA,#F7EBCF);border-radius:16px;overflow:hidden;margin:10px 0 14px}
+.stand{position:absolute;left:50%;bottom:8px;transform:translateX(-50%);font-size:3rem}
+.walker{position:absolute;bottom:10px;font-size:1.8rem;animation:walk linear forwards}
+@keyframes walk{from{left:-40px}to{left:calc(100% + 40px)}}
+.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+.result-grid div{background:var(--cream);border-radius:14px;padding:10px 12px}
+.result-grid b{display:block;font-size:1.3rem}
+.result-grid small{color:var(--muted);font-weight:700}
+.stars{font-size:1.6rem;letter-spacing:4px}
+.hide{display:none}
+.days{display:flex;gap:6px;margin:4px 0 14px}
+.days i{flex:1;height:8px;border-radius:999px;background:var(--line)}
+.days i.done{background:var(--gold)}
+.days i.now{background:var(--orange)}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="top">
+    <a href="../">← Good &amp; Faithful Books</a>
+    <div class="stats"><span id="sMoney">$5.00</span><span id="sDay">Day 1/7</span></div>
+  </div>
+  <main><div class="card" id="screen"></div></main>
+</div>
+
+<script>
+// Pennys saftstånd. Ingen datainsamling, ingen lagring, inga externa anrop.
+(function(){
+var DAYS = 7, GOAL = 60;
+var WEATHER = [
+  {id:"hot",   ic:"☀️🔥", name:"Hot and sunny", base:30, ideal:1.00, w:2},
+  {id:"sunny", ic:"☀️",   name:"Sunny",         base:22, ideal:0.75, w:3},
+  {id:"cloudy",ic:"⛅",   name:"Cloudy",        base:13, ideal:0.60, w:2},
+  {id:"rain",  ic:"🌧️",   name:"Rainy",         base:6,  ideal:0.50, w:1}
+];
+var PRICES = {lemons:{qty:12,cost:2.00,label:"Bag of 12 lemons"}, sugar:{qty:12,cost:1.50,label:"Bag of sugar (12 scoops)"}, cups:{qty:25,cost:1.00,label:"Pack of 25 cups"}};
+var CUPS_PER_PITCHER = 10;
+
+var S;
+function reset(){
+  S = {day:1, money:5.00, lemons:0, sugar:0, cups:0, price:0.75, lemonsPer:2, sugarPer:6,
+       rep:1.0, sign:false, tommy:false, served:0, earned:0, spent:0, helped:0, forecast:null,
+       nextDayBonus:0, log:[], eventUsed:{}};
+}
+var $ = function(id){ return document.getElementById(id); };
+var screen = $("screen");
+function money(n){ return "$" + n.toFixed(2); }
+function rnd(a,b){ return a + Math.random()*(b-a); }
+function clamp(v,a,b){ return Math.max(a,Math.min(b,v)); }
+function pickWeather(){
+  var bag=[]; WEATHER.forEach(function(w){ for(var i=0;i<w.w;i++) bag.push(w); });
+  return bag[Math.floor(Math.random()*bag.length)];
+}
+function topbar(){ $("sMoney").textContent = money(S.money); $("sDay").textContent = "Day " + Math.min(S.day,DAYS) + "/" + DAYS; }
+function daysBar(){ var h='<div class="days">'; for(var i=1;i<=DAYS;i++) h+='<i class="'+(i<S.day?'done':i===S.day?'now':'')+'"></i>'; return h+'</div>'; }
+function taste(){ return clamp(1 - (Math.abs(S.lemonsPer-4)*0.14 + Math.abs(S.sugarPer-3)*0.14), 0.2, 1); }
+function pitchersPossible(){ return Math.min(Math.floor(S.lemons/S.lemonsPer), Math.floor(S.sugar/S.sugarPer)); }
+function cupsReady(){ return Math.min(pitchersPossible()*CUPS_PER_PITCHER, S.cups); }
+
+/* ---------- screens ---------- */
+function intro(){
+  reset(); topbar();
+  screen.innerHTML =
+   '<div class="intro"><img src="../img/penny.png" alt="Penny"><div><h1>Penny\'s Lemonade Stand</h1><p class="muted">From <i>Penny and the Golden Notebook</i></p></div></div>'+
+   '<p>Penny needs money for sailing camp. You have <b>7 days</b> and <b>$5.00</b> to start. Can you grow it to <b>'+money(GOAL)+'</b>?</p>'+
+   '<p>Buy lemons, sugar and cups. Mix a recipe people love. Set a fair price. Watch the weather. And keep your eyes open, because people around you have problems too.</p>'+
+   '<div class="note">"Problems are gold." The first seal of the Golden Notebook</div>'+
+   '<button class="btn" id="go">Open the stand</button>';
+  $("go").onclick = morning;
+}
+
+function morning(){
+  S.forecast = pickWeather(); topbar();
+  var ev = pickEvent();
+  if (ev) { showEvent(ev); } else { shop(); }
+}
+
+/* events: small moral choices, each used at most once */
+var EVENTS = [
+  {id:"green", who:"👴🍎", title:"Mr. Green's apples",
+   text:"Mr. Green's back hurts and his apples are falling all over the lawn. If you help him pick them up, you'll open the stand late today.",
+   choices:[
+     {t:"Help Mr. Green first", f:function(){ S.lateStart=true; S.rep=clamp(S.rep+0.15,0.5,1.8); S.nextDayBonus+=6; S.helped++; S.earned+=3; S.money+=3; return "Mr. Green pressed $3 into your hand and said, \"You're a good one, Penny Lind.\" He'll tell his friends about your lemonade."; }},
+     {t:"Sorry, I have to sell today", f:function(){ return "You open on time. Mr. Green waves, but he looks tired."; }}
+   ]},
+  {id:"marcus", who:"😎⛺", title:"Marcus opens next door",
+   text:"Marcus sets up a stand right across the street, with a party tent and a sign: HALF PRICE!",
+   choices:[
+     {t:"Cut my price in half too", f:function(){ S.price=Math.max(0.25, Math.round(S.price/2*4)/4); S.marcus="match"; return "Your price is now "+money(S.price)+". A price war has started."; }},
+     {t:"Make the best lemonade on the street", f:function(){ S.marcus="quality"; return "You keep your price and focus on taste. If your lemonade is great, people will notice."; }}
+   ]},
+  {id:"sign", who:"👧🖍️", title:"Emma has an idea",
+   text:"Emma says, \"Nobody can see our stand from the main road. A big sign would cost $1.50 for poster board.\"",
+   choices:[
+     {t:"Buy the poster board ($1.50)", f:function(){ if(S.money<1.5) return "You don't have enough money yet. Maybe later."; S.money-=1.5; S.spent+=1.5; S.sign=true; return "Emma draws a giant lemon with a smile. More people will find you from now on."; }},
+     {t:"Not now", f:function(){ return "Emma shrugs. \"Okay. But think about it.\""; }}
+   ]},
+  {id:"crew", who:"👷‍♂️🔨", title:"A thirsty work crew",
+   text:"Dad's friend has a crew building a house down the road. \"Could you bring us 20 cups at noon? I'll pay $10.\"",
+   choices:[
+     {t:"Yes! I'll deliver", f:function(){ S.crewOrder=true; return "Deal. Make sure you have at least 20 cups ready today, or you'll let him down."; }},
+     {t:"No, too much work", f:function(){ return "He nods. \"Maybe another time.\""; }}
+   ]},
+  {id:"tommy", who:"👦❓", title:"Tommy wants to help",
+   text:"Your little brother Tommy wants to work at the stand. He asks \"why?\" about everything, and he might drink some of the lemonade.",
+   choices:[
+     {t:"Sure, come along", f:function(){ S.tommy=true; return "Tommy shouts \"LEMONADE!\" at everyone who walks by. It's embarrassing. It also works."; }},
+     {t:"Not today, Tommy", f:function(){ return "Tommy goes back to his Lego. The stand is quieter."; }}
+   ]},
+  {id:"lee", who:"🐕💨", title:"Cinnamon runs away",
+   text:"Mrs. Lee's golden retriever Cinnamon has escaped again, and Mrs. Lee is stuck at work at the pharmacy.",
+   choices:[
+     {t:"Close the stand and find Cinnamon", f:function(){ S.closedHalf=true; S.rep=clamp(S.rep+0.2,0.5,1.8); S.helped++; S.nextDayBonus+=8; return "You find Cinnamon behind the church, covered in mud. Mrs. Lee hugs you so hard your feet leave the ground. Everyone at the pharmacy hears the story."; }},
+     {t:"Keep selling", f:function(){ return "You keep selling, but you keep looking down the street for a muddy golden dog."; }}
+   ]}
+];
+function pickEvent(){
+  if (S.day === 1 || Math.random() < 0.35) return null;
+  var left = EVENTS.filter(function(e){ return !S.eventUsed[e.id]; });
+  if (!left.length) return null;
+  var e = left[Math.floor(Math.random()*left.length)]; S.eventUsed[e.id]=true; return e;
+}
+function showEvent(e){
+  screen.innerHTML = daysBar() + '<div class="event"><div class="who">'+e.who+'</div><h2>'+e.title+'</h2><p>'+e.text+'</p><div class="choices" id="ch"></div></div>';
+  e.choices.forEach(function(c){
+    var b=document.createElement("button"); b.className="btn "+(c===e.choices[0]?"":"ghost"); b.textContent=c.t;
+    b.onclick=function(){ var msg=c.f(); topbar(); screen.innerHTML = daysBar()+'<div class="event"><div class="who">'+e.who+'</div><p>'+msg+'</p></div><button class="btn" id="next">Go to the stand</button>'; $("next").onclick=shop; };
+    $("ch").appendChild(b);
+  });
+}
+
+function shop(){
+  topbar();
+  var w=S.forecast;
+  screen.innerHTML = daysBar() +
+   '<div class="weather"><div class="ic">'+w.ic+'</div><div><b>Day '+S.day+': '+w.name+'</b><br><small class="muted">'+hint(w)+'</small></div></div>'+
+   '<div class="section-title">Supplies</div>'+
+   supplyRow("lemons","🍋")+supplyRow("sugar","🍚")+supplyRow("cups","🥤")+
+   '<div class="section-title">Recipe per pitcher (10 cups)</div>'+
+   stepRow("Lemons","lemonsPer",1,8,"")+stepRow("Scoops of sugar","sugarPer",1,8,"")+
+   '<div class="taste"><i id="tasteBar"></i></div><small class="muted" id="tasteTxt"></small>'+
+   '<div class="section-title">Price per cup</div>'+
+   stepRow("Price","price",0.25,2.00,"$")+
+   '<p class="muted" id="ready" style="margin-top:10px"></p>'+
+   '<button class="btn" id="sell">Open for the day</button>';
+  ["lemons","sugar","cups"].forEach(function(k){ $("buy-"+k).onclick=function(){ buy(k); }; });
+  bindStep("lemonsPer",1,1,8); bindStep("sugarPer",1,1,8); bindStep("price",0.25,0.25,2.00);
+  $("sell").onclick=sell; refresh();
+}
+function hint(w){
+  return {hot:"People will be very thirsty today.",sunny:"A good day to sell.",cloudy:"Fewer people outside.",rain:"Hardly anyone is out. Don't buy too much."}[w.id];
+}
+function supplyRow(k,ic){
+  var p=PRICES[k];
+  return '<div class="row"><div class="lbl"><b>'+ic+' <span id="have-'+k+'">'+S[k]+'</span> in stock</b><small>'+p.label+': '+money(p.cost)+'</small></div><button class="btn alt" style="width:auto;margin:0;padding:10px 16px" id="buy-'+k+'">Buy</button></div>';
+}
+function stepRow(label,key,min,max,pre){
+  return '<div class="row"><div class="lbl"><b>'+label+'</b></div><div class="stepper"><button id="m-'+key+'" aria-label="less">−</button><output id="o-'+key+'"></output><button id="p-'+key+'" aria-label="more">+</button></div></div>';
+}
+function bindStep(key,step,min,max){
+  $("m-"+key).onclick=function(){ S[key]=clamp(+(S[key]-step).toFixed(2),min,max); refresh(); };
+  $("p-"+key).onclick=function(){ S[key]=clamp(+(S[key]+step).toFixed(2),min,max); refresh(); };
+}
+function buy(k){
+  var p=PRICES[k]; if(S.money < p.cost){ flash("Not enough money for that."); return; }
+  S.money-=p.cost; S.spent+=p.cost; S[k]+=p.qty; refresh();
+}
+function flash(t){ var r=$("ready"); r.textContent=t; r.style.color="var(--red)"; setTimeout(refresh,1400); }
+function refresh(){
+  topbar(); if (!$("o-price")) return;
+  ["lemons","sugar","cups"].forEach(function(k){ var e=$("have-"+k); if(e) e.textContent=S[k]; });
+  $("o-lemonsPer").textContent=S.lemonsPer; $("o-sugarPer").textContent=S.sugarPer; $("o-price").textContent=money(S.price);
+  var t=taste(); $("tasteBar").style.width=(t*100)+"%";
+  $("tasteTxt").textContent = t>0.9?"Tastes amazing!": t>0.7?"Pretty good.": t>0.5?"Hmm. Something's off.":"Yuck. Nobody will come back for this.";
+  var r=$("ready"); r.style.color=""; var c=cupsReady();
+  r.innerHTML = c>0 ? "You can serve <b>"+c+" cups</b> today." : "You can't make any lemonade yet. Buy lemons, sugar and cups.";
+}
+
+function sell(){
+  var w=S.forecast, t=taste();
+  var priceFactor = S.price<=w.ideal ? 1 + (w.ideal-S.price)/w.ideal*0.35 : Math.max(0, 1 - (S.price-w.ideal)/(w.ideal*1.6));
+  var demand = w.base * priceFactor * S.rep * rnd(0.85,1.15);
+  if (S.sign) demand *= 1.2;
+  if (S.tommy) demand *= 1.1;
+  if (S.lateStart) demand *= 0.7;
+  if (S.closedHalf) demand *= 0.5;
+  if (S.marcus==="match") demand *= 0.95;
+  if (S.marcus==="quality") demand *= (t>0.85 ? 1.05 : 0.7);
+  demand += S.nextDayBonus; S.nextDayBonus=0;
+  demand = Math.max(0, Math.round(demand));
+
+  var avail = cupsReady(), crewMsg="", used=0;
+  if (S.crewOrder){
+    if (avail>=20){ avail-=20; used+=20; S.money+=10; S.earned+=10; S.served+=20; S.rep=clamp(S.rep+0.05,0.5,1.8); crewMsg="You delivered 20 cups to the work crew and earned $10. They cheered."; }
+    else { S.rep=clamp(S.rep-0.1,0.5,1.8); crewMsg="You didn't have 20 cups for the work crew. Dad's friend was disappointed. A promise is a promise."; }
+  }
+  var tommyDrank = S.tommy ? Math.min(3, avail) : 0; avail -= tommyDrank; used += tommyDrank;
+  var sold = Math.min(demand, avail);
+  used += sold; if (used) useCups(used);
+  var revenue = sold * S.price;
+  S.money += revenue; S.earned += revenue; S.served += sold;
+  var missed = demand - sold;
+
+  // rykte: smak och pris spelar roll
+  var fair = S.price <= w.ideal*1.25;
+  S.rep = clamp(S.rep + (t-0.7)*0.35 + (fair?0.02:-0.06), 0.5, 1.8);
+
+  // citroner blir dåliga
+  var spoiled = Math.floor(S.lemons*0.25); S.lemons -= spoiled;
+
+  S.log.push({day:S.day, weather:w.name, sold:sold, revenue:revenue});
+  S.lateStart=false; S.closedHalf=false; S.crewOrder=false; S.marcus=null; S.tommy=false;
+  animate(sold, function(){ dayResult(sold, revenue, missed, spoiled, crewMsg, t, tommyDrank); });
+}
+function useCups(n){
+  // varje kanna = 10 koppar; dra ingredienser för det som serverats
+  var pitchers = Math.ceil(n/CUPS_PER_PITCHER);
+  S.cups -= n;
+  S.lemons = Math.max(0, S.lemons - pitchers*S.lemonsPer);
+  S.sugar = Math.max(0, S.sugar - pitchers*S.sugarPer);
+}
+function animate(sold, done){
+  screen.innerHTML = daysBar()+'<h2>Day '+S.day+' at the stand</h2><div class="street" id="street"><div class="stand">🍋</div></div><p class="muted" id="count">Customers: 0</p>';
+  var st=$("street"), shown=Math.min(sold,14), i=0, count=0, faces=["👩","👨","👧","👦","👵","👴","🧑","👩‍🦰","👨‍🦱","🧒"];
+  if (!shown){ setTimeout(done, 900); return; }
+  var iv=setInterval(function(){
+    var d=document.createElement("div"); d.className="walker"; d.textContent=faces[Math.floor(Math.random()*faces.length)];
+    d.style.animationDuration=rnd(1.6,2.4)+"s"; st.appendChild(d);
+    count += Math.round(sold/shown); $("count").textContent="Customers: "+Math.min(count,sold);
+    if(++i>=shown){ clearInterval(iv); setTimeout(function(){ $("count").textContent="Customers: "+sold; setTimeout(done,500); },1200); }
+  }, 180);
+}
+var NOTES = {
+  great:["When you meet a real need, people are glad to pay.","Money is a receipt for helping someone."],
+  sold_out:["People wanted more than you had. Next time, be ready for them.","A problem you can't solve yet is a lesson for tomorrow."],
+  taste:["Do the small things well. People remember how it tasted.","Whoever is faithful in little will be trusted with much."],
+  price:["A fair price helps both of you. Too high and nobody buys. Too low and you can't keep going.","Ask yourself: what is it worth to them?"],
+  slow:["Some days are slow. Keep going.","Don't give up. Seeds grow when you can't see them."]
+};
+function pick(a){ return a[Math.floor(Math.random()*a.length)]; }
+function dayResult(sold, revenue, missed, spoiled, crewMsg, t, tommyDrank){
+  topbar();
+  var note = t<0.6 ? pick(NOTES.taste) : missed>5 ? pick(NOTES.sold_out) : sold<5 ? pick(NOTES.slow) : (S.price>S.forecast.ideal*1.3 ? pick(NOTES.price) : pick(NOTES.great));
+  var stars = Math.round(clamp((S.rep-0.5)/1.3*5,0,5));
+  var h = daysBar()+'<h2>End of day '+S.day+'</h2>'+
+   '<div class="result-grid"><div><small>Cups sold</small><b>'+sold+'</b></div><div><small>Earned today</small><b>'+money(revenue)+'</b></div>'+
+   '<div><small>Money now</small><b>'+money(S.money)+'</b></div><div><small>Reputation</small><b class="stars">'+"★".repeat(stars)+"☆".repeat(5-stars)+'</b></div></div>';
+  if (crewMsg) h+='<p>'+crewMsg+'</p>';
+  if (missed>0) h+='<p>'+missed+' thirsty people left without lemonade.</p>';
+  if (tommyDrank) h+='<p class="muted">Tommy drank '+tommyDrank+' cups. "Quality control," he said.</p>';
+  if (spoiled>0) h+='<p class="muted">'+spoiled+' lemons went soft overnight.</p>';
+  h+='<div class="note">'+note+'</div>';
+  S.day++;
+  h+= S.day>DAYS ? '<button class="btn" id="next">See how Penny did</button>' : '<button class="btn" id="next">Next morning</button>';
+  screen.innerHTML=h; $("next").onclick = S.day>DAYS ? finale : morning;
+}
+function finale(){
+  S.day=DAYS; topbar();
+  var win = S.money>=GOAL, stars=Math.round(clamp((S.rep-0.5)/1.3*5,0,5));
+  var title = win ? "You made it to sailing camp money!" : "Penny didn't reach the goal this time.";
+  var h='<div class="intro"><img src="../img/penny.png" alt="Penny"><div><h1>'+title+'</h1></div></div>'+
+   '<div class="result-grid"><div><small>Money</small><b>'+money(S.money)+'</b></div><div><small>Goal</small><b>'+money(GOAL)+'</b></div>'+
+   '<div><small>Cups served</small><b>'+S.served+'</b></div><div><small>Neighbors helped</small><b>'+S.helped+'</b></div></div>'+
+   '<p>Reputation: <span class="stars">'+"★".repeat(stars)+"☆".repeat(5-stars)+'</span></p>';
+  if (S.helped>0) h+='<p>You stopped to help people even when it cost you selling time. In the Golden Notebook, that\'s not a loss. That\'s the whole secret.</p>';
+  else h+='<p>You focused on selling. Next time, watch for people with problems. In the Golden Notebook, helping them is where the gold is hidden.</p>';
+  h+='<div class="note">"Problems are gold." Find out how Penny really raised the money in <b>Penny and the Golden Notebook</b>.</div>'+
+     '<button class="btn" id="again">Play again</button>'+
+     '<a class="btn alt" style="text-align:center;text-decoration:none" href="../#books">Grown-ups: see the book</a>';
+  screen.innerHTML=h; $("again").onclick=intro;
+}
+intro();
+})();
+</script>
+</body>
+</html>
