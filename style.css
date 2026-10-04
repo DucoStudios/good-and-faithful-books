@@ -170,3 +170,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
 /* hjältebilden: behåll proportionerna 2:3 på alla skärmar */
 .hero-art img{width:100%;height:auto;aspect-ratio:2/3;object-fit:cover}
+@media (max-width:640px){
+  .shelf{scroll-padding-inline:16px}
+  .shelf::after{content:"";flex:0 0 1px}
+}
