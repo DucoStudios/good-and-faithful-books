@@ -114,7 +114,7 @@ function cupsReady(){ return Math.min(pitchersPossible()*CUPS_PER_PITCHER, S.cup
 function intro(){
   reset(); topbar();
   screen.innerHTML =
-   '<div class="intro"><img src="../img/penny.png" alt="Penny"><div><h1>Penny\'s Lemonade Stand</h1><p class="muted">From <i>Penny and the Golden Notebook</i></p></div></div>'+
+   '<div class="intro"><img src="../img/penny-v2.png" alt="Penny"><div><h1>Penny\'s Lemonade Stand</h1><p class="muted">From <i>Penny and the Golden Notebook</i></p></div></div>'+
    '<p>Penny needs money for sailing camp. You have <b>7 days</b> and <b>$5.00</b> to start. Can you grow it to <b>'+money(GOAL)+'</b>?</p>'+
    '<p>Buy lemons, sugar and cups. Mix a recipe people love. Set a fair price. Watch the weather. And keep your eyes open, because people around you have problems too.</p>'+
    '<div class="note">"Problems are gold." The first seal of the Golden Notebook</div>'+
@@ -312,7 +312,7 @@ function finale(){
   S.day=DAYS; topbar();
   var win = S.money>=GOAL, stars=Math.round(clamp((S.rep-0.5)/1.3*5,0,5));
   var title = win ? "You made it to sailing camp money!" : "Penny didn't reach the goal this time.";
-  var h='<div class="intro"><img src="../img/penny.png" alt="Penny"><div><h1>'+title+'</h1></div></div>'+
+  var h='<div class="intro"><img src="../img/penny-v2.png" alt="Penny"><div><h1>'+title+'</h1></div></div>'+
    '<div class="result-grid"><div><small>Money</small><b>'+money(S.money)+'</b></div><div><small>Goal</small><b>'+money(GOAL)+'</b></div>'+
    '<div><small>Cups served</small><b>'+S.served+'</b></div><div><small>Neighbors helped</small><b>'+S.helped+'</b></div></div>'+
    '<p>Reputation: <span class="stars">'+starIcons(stars)+'</span></p>';
