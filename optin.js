@@ -1,6 +1,7 @@
 // Formuläret skickar till vårt eget CRM (underkonto "bocker"), dubbel opt-in.
-// Granskningsläge: inga anmälningar skickas förrän CRM-underkontot "bocker" är live.
-var PREVIEW = true;
+// Svenska sidan är live (single opt-in, paketet mejlas direkt). Engelska är
+// i granskningsläge tills mallarna i CRM-underkontot "bocker" är godkända.
+var PREVIEW = document.documentElement.lang !== "sv";
 var API = "https://portal.ducomaison.fr/api/list/subscribe";
 document.getElementById("optin").addEventListener("submit", function (e) {
   e.preventDefault();
