@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://goodandfaithfulbooks.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goodandfaithfulbooks.com/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://goodandfaithfulbooks.com/sv/"/>
+    <lastmod>2026-10-07</lastmod>
+  </url>
+  <url>
+    <loc>https://goodandfaithfulbooks.com/sv/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goodandfaithfulbooks.com/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://goodandfaithfulbooks.com/sv/"/>
+    <lastmod>2026-10-07</lastmod>
+  </url>
+  <url>
+    <loc>https://goodandfaithfulbooks.com/free/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goodandfaithfulbooks.com/free/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://goodandfaithfulbooks.com/sv/gratis/"/>
+    <lastmod>2026-10-07</lastmod>
+  </url>
+  <url>
+    <loc>https://goodandfaithfulbooks.com/sv/gratis/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goodandfaithfulbooks.com/free/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://goodandfaithfulbooks.com/sv/gratis/"/>
+    <lastmod>2026-10-07</lastmod>
+  </url>
+  <url>
+    <loc>https://goodandfaithfulbooks.com/play/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goodandfaithfulbooks.com/play/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://goodandfaithfulbooks.com/sv/spela/"/>
+    <lastmod>2026-10-07</lastmod>
+  </url>
+  <url>
+    <loc>https://goodandfaithfulbooks.com/sv/spela/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goodandfaithfulbooks.com/play/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://goodandfaithfulbooks.com/sv/spela/"/>
+    <lastmod>2026-10-07</lastmod>
+  </url>
+</urlset>
