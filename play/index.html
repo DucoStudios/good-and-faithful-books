@@ -136,7 +136,7 @@ var EVENTS = [
   {id:"green", who:'<i class="fa-solid fa-person-cane" style="color:#8A5A2B" aria-hidden="true"></i> <i class="fa-solid fa-apple-whole" style="color:#B5392E" aria-hidden="true"></i>', title:"Mr. Green's apples",
    text:"Mr. Green's back hurts and his apples are falling all over the lawn. If you help him pick them up, you'll open the stand late today.",
    choices:[
-     {t:"Help Mr. Green first", f:function(){ S.lateStart=true; S.rep=clamp(S.rep+0.15,0.5,1.8); S.nextDayBonus+=6; S.helped++; S.earned+=3; S.money+=3; return "Mr. Green pressed $3 into your hand and said, \"You're a good one, Penny Carter.\" He'll tell his friends about your lemonade."; }},
+     {t:"Help Mr. Green first", f:function(){ S.lateStart=true; S.rep=clamp(S.rep+0.15,0.5,1.8); S.nextDayBonus+=6; S.helped++; S.earned+=3; S.money+=3; return "Mr. Green pressed $3 into your hand and said, \"You're a good one, Penny Lind.\" He'll tell his friends about your lemonade."; }},
      {t:"Sorry, I have to sell today", f:function(){ return "You open on time. Mr. Green waves, but he looks tired."; }}
    ]},
   {id:"marcus", who:'<i class="fa-solid fa-campground" style="color:#2F5D7C" aria-hidden="true"></i> <i class="fa-solid fa-tags" style="color:#D9662B" aria-hidden="true"></i>', title:"Marcus opens next door",
