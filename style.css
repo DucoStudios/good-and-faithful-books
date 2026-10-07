@@ -187,3 +187,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .ico{display:inline-block;vertical-align:-.125em}
 .free-more ul,.free-more ol{padding-left:1.3em}
 .free-more li{margin-bottom:8px}
+.crumbs{font-size:.85rem;color:var(--muted);margin-bottom:14px}.crumbs a{color:var(--muted)}
+.series-hero .hero-art img{max-width:380px;margin:0 auto}
+.excerpt{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:28px 32px;font-size:1.05rem;line-height:1.7}
+.excerpt h3{margin-top:0}
+.more-shelf{grid-template-columns:repeat(4,1fr)}
+.wide-art{width:100%;height:auto;border-radius:var(--radius);margin:24px 0}
+.steps{counter-reset:s;list-style:none;padding:0}.steps li{counter-increment:s;padding-left:46px;position:relative;margin-bottom:16px}.steps li:before{content:counter(s);position:absolute;left:0;top:-2px;width:32px;height:32px;border-radius:50%;background:var(--gold-soft);display:grid;place-items:center;font-weight:900}
+.more-link{display:inline-block;margin-top:6px;font-weight:800;font-size:.88rem;color:var(--blue)}

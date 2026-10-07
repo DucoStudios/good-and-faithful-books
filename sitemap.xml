@@ -36,4 +36,64 @@
     <xhtml:link rel="alternate" hreflang="sv" href="https://goodandfaithfulbooks.com/sv/spela/"/>
     <lastmod>2026-10-07</lastmod>
   </url>
+  <url>
+    <loc>https://goodandfaithfulbooks.com/penny/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goodandfaithfulbooks.com/penny/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://goodandfaithfulbooks.com/sv/penny/"/>
+    <lastmod>2026-10-07</lastmod>
+  </url>
+  <url>
+    <loc>https://goodandfaithfulbooks.com/sv/penny/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goodandfaithfulbooks.com/penny/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://goodandfaithfulbooks.com/sv/penny/"/>
+    <lastmod>2026-10-07</lastmod>
+  </url>
+  <url>
+    <loc>https://goodandfaithfulbooks.com/little-penny/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goodandfaithfulbooks.com/little-penny/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://goodandfaithfulbooks.com/sv/lilla-penny/"/>
+    <lastmod>2026-10-07</lastmod>
+  </url>
+  <url>
+    <loc>https://goodandfaithfulbooks.com/sv/lilla-penny/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goodandfaithfulbooks.com/little-penny/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://goodandfaithfulbooks.com/sv/lilla-penny/"/>
+    <lastmod>2026-10-07</lastmod>
+  </url>
+  <url>
+    <loc>https://goodandfaithfulbooks.com/ben/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goodandfaithfulbooks.com/ben/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://goodandfaithfulbooks.com/sv/ben/"/>
+    <lastmod>2026-10-07</lastmod>
+  </url>
+  <url>
+    <loc>https://goodandfaithfulbooks.com/sv/ben/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goodandfaithfulbooks.com/ben/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://goodandfaithfulbooks.com/sv/ben/"/>
+    <lastmod>2026-10-07</lastmod>
+  </url>
+  <url>
+    <loc>https://goodandfaithfulbooks.com/maya/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goodandfaithfulbooks.com/maya/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://goodandfaithfulbooks.com/sv/maya/"/>
+    <lastmod>2026-10-07</lastmod>
+  </url>
+  <url>
+    <loc>https://goodandfaithfulbooks.com/sv/maya/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goodandfaithfulbooks.com/maya/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://goodandfaithfulbooks.com/sv/maya/"/>
+    <lastmod>2026-10-07</lastmod>
+  </url>
+  <url>
+    <loc>https://goodandfaithfulbooks.com/the-condition/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goodandfaithfulbooks.com/the-condition/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://goodandfaithfulbooks.com/sv/villkoret/"/>
+    <lastmod>2026-10-07</lastmod>
+  </url>
+  <url>
+    <loc>https://goodandfaithfulbooks.com/sv/villkoret/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goodandfaithfulbooks.com/the-condition/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://goodandfaithfulbooks.com/sv/villkoret/"/>
+    <lastmod>2026-10-07</lastmod>
+  </url>
 </urlset>
