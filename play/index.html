@@ -210,11 +210,11 @@ var EVENTS = [
      {t:"Yes! I'll deliver", f:function(){ S.crewOrder=true; return "Deal. Make sure you have at least 20 cups ready today, or you'll let him down."; }},
      {t:"No, too much work", f:function(){ return "He nods. \"Maybe another time.\""; }}
    ]},
-  {id:"tommy", who:'<i class="fa-solid fa-child" style="color:#2F5D7C" aria-hidden="true"></i> <i class="fa-solid fa-circle-question" style="color:#D9662B" aria-hidden="true"></i>', title:"Tommy wants to help",
-   text:"Your little brother Tommy wants to work at the stand. He asks \"why?\" about everything, and he might drink some of the lemonade.",
+  {id:"tommy", who:'<i class="fa-solid fa-child" style="color:#2F5D7C" aria-hidden="true"></i> <i class="fa-solid fa-circle-question" style="color:#D9662B" aria-hidden="true"></i>', title:"Theo wants to help",
+   text:"Your little brother Theo wants to work at the stand. He asks \"why?\" about everything, and he might drink some of the lemonade.",
    choices:[
-     {t:"Sure, come along", f:function(){ S.tommy=true; return "Tommy shouts \"LEMONADE!\" at everyone who walks by. It's embarrassing. It also works."; }},
-     {t:"Not today, Tommy", f:function(){ return "Tommy goes back to his Lego. The stand is quieter."; }}
+     {t:"Sure, come along", f:function(){ S.tommy=true; return "Theo shouts \"LEMONADE!\" at everyone who walks by. It's embarrassing. It also works."; }},
+     {t:"Not today, Theo", f:function(){ return "Theo goes back to his Lego. The stand is quieter."; }}
    ]},
   {id:"lee", who:'<i class="fa-solid fa-dog" style="color:#E9B44C" aria-hidden="true"></i> <i class="fa-solid fa-wind" style="color:#2F5D7C" aria-hidden="true"></i>', title:"Cinnamon runs away",
    text:"Mrs. Lee's golden retriever Cinnamon has escaped again, and Mrs. Lee is stuck at work at the pharmacy.",
@@ -357,7 +357,7 @@ function dayResult(sold, revenue, missed, spoiled, crewMsg, t, tommyDrank){
    '<div><small>Money now</small><b>'+money(S.money)+'</b></div><div><small>Reputation</small><b class="stars">'+starIcons(stars)+'</b></div></div>';
   if (crewMsg) h+='<p>'+crewMsg+'</p>';
   if (missed>0) h+='<p>'+missed+' thirsty people left without lemonade.</p>';
-  if (tommyDrank) h+='<p class="muted">Tommy drank '+tommyDrank+' cups. "Quality control," he said.</p>';
+  if (tommyDrank) h+='<p class="muted">Theo drank '+tommyDrank+' cups. "Quality control," he said.</p>';
   if (spoiled>0) h+='<p class="muted">'+spoiled+' lemons went soft overnight.</p>';
   h+='<div class="note">'+note+'</div>';
   S.day++;

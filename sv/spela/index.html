@@ -210,11 +210,11 @@ var EVENTS = [
      {t:"Ja! Jag levererar", f:function(){ S.crewOrder=true; return "Avgjort. Se till att du har minst 20 muggar redo i dag, annars sviker du honom."; }},
      {t:"Nej, det blir för mycket", f:function(){ return "Han nickar. ”Kanske en annan gång.”"; }}
    ]},
-  {id:"tommy", who:'<i class="fa-solid fa-child" style="color:#2F5D7C" aria-hidden="true"></i> <i class="fa-solid fa-circle-question" style="color:#D9662B" aria-hidden="true"></i>', title:"Tommy vill hjälpa till",
-   text:"Din lillebror Tommy vill jobba i ståndet. Han frågar ”varför?” om allt, och han kanske dricker upp lite av saften.",
+  {id:"tommy", who:'<i class="fa-solid fa-child" style="color:#2F5D7C" aria-hidden="true"></i> <i class="fa-solid fa-circle-question" style="color:#D9662B" aria-hidden="true"></i>', title:"Theo vill hjälpa till",
+   text:"Din lillebror Theo vill jobba i ståndet. Han frågar ”varför?” om allt, och han kanske dricker upp lite av saften.",
    choices:[
-     {t:"Visst, följ med", f:function(){ S.tommy=true; return "Tommy ropar ”SAFT!” till alla som går förbi. Det är pinsamt. Men det fungerar."; }},
-     {t:"Inte i dag, Tommy", f:function(){ return "Tommy går tillbaka till sitt lego. Det blir tystare i ståndet."; }}
+     {t:"Visst, följ med", f:function(){ S.tommy=true; return "Theo ropar ”SAFT!” till alla som går förbi. Det är pinsamt. Men det fungerar."; }},
+     {t:"Inte i dag, Theo", f:function(){ return "Theo går tillbaka till sitt lego. Det blir tystare i ståndet."; }}
    ]},
   {id:"lee", who:'<i class="fa-solid fa-dog" style="color:#E9B44C" aria-hidden="true"></i> <i class="fa-solid fa-wind" style="color:#2F5D7C" aria-hidden="true"></i>', title:"Kanel rymmer",
    text:"Fru Lees golden retriever Kanel har rymt igen, och fru Lee sitter fast på jobbet på apoteket.",
@@ -357,7 +357,7 @@ function dayResult(sold, revenue, missed, spoiled, crewMsg, t, tommyDrank){
    '<div><small>Pengar nu</small><b>'+money(S.money)+'</b></div><div><small>Rykte</small><b class="stars">'+starIcons(stars)+'</b></div></div>';
   if (crewMsg) h+='<p>'+crewMsg+'</p>';
   if (missed>0) h+='<p>'+missed+' törstiga gick därifrån utan saft.</p>';
-  if (tommyDrank) h+='<p class="muted">Tommy drack '+tommyDrank+' muggar. ”Kvalitetskontroll”, sa han.</p>';
+  if (tommyDrank) h+='<p class="muted">Theo drack '+tommyDrank+' muggar. ”Kvalitetskontroll”, sa han.</p>';
   if (spoiled>0) h+='<p class="muted">'+spoiled+' citroner blev mjuka under natten.</p>';
   h+='<div class="note">'+note+'</div>';
   S.day++;
