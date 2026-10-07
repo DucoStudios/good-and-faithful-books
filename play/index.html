@@ -8,8 +8,22 @@
 <link rel="alternate" hreflang="en" href="https://goodandfaithfulbooks.com/play/">
 <link rel="alternate" hreflang="sv" href="https://goodandfaithfulbooks.com/sv/spela/">
 <link rel="alternate" hreflang="x-default" href="https://goodandfaithfulbooks.com/play/">
-<meta name="description" content="A free lemonade stand game for kids from Penny and the Golden Notebook. No ads, no logins, no tracking.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ccircle cx=%2250%22 cy=%2250%22 r=%2246%22 fill=%22%23B5392E%22/%3E%3Ctext x=%2250%22 y=%2266%22 font-size=%2248%22 text-anchor=%22middle%22 fill=%22%23FCE3C8%22 font-family=%22Georgia%22%3EG%3C/text%3E%3C/svg%3E">
+<meta name="description" content="A free lemonade stand game for kids 7 and up from Penny and the Golden Notebook. Pick a recipe, set a price and help a neighbor. No ads, no tracking.">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" href="/img/logo.png" sizes="512x512">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Good &amp; Faithful Books">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="sv_SE">
+<meta property="og:url" content="https://goodandfaithfulbooks.com/play/">
+<meta property="og:title" content="Penny's Lemonade Stand, a free money game for kids">
+<meta property="og:description" content="Pick a recipe, set a price, watch the weather and decide whether to help a neighbor. A free game for kids 7 and up. No ads, no logins, no tracking.">
+<meta property="og:image" content="https://goodandfaithfulbooks.com/img/og-en.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Penny's Lemonade Stand, a free money game for kids">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -69,6 +83,45 @@ p{margin:0 0 12px;line-height:1.55}
 .days i.done{background:var(--gold)}
 .days i.now{background:var(--orange)}
 </style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "VideoGame",
+ "name": "Penny's Lemonade Stand",
+ "url": "https://goodandfaithfulbooks.com/play/",
+ "inLanguage": "en",
+ "description": "A free lemonade stand game for kids 7 and up from the Christian chapter book Penny and the Golden Notebook. Pick a recipe, set a price, watch the weather and help a neighbor. No ads, no logins, no tracking.",
+ "genre": "Educational game",
+ "gamePlatform": "Web browser",
+ "applicationCategory": "GameApplication",
+ "operatingSystem": "Any",
+ "typicalAgeRange": "7-",
+ "isAccessibleForFree": true,
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD"
+ },
+ "publisher": {
+  "@type": "Organization",
+  "@id": "https://goodandfaithfulbooks.com/#org",
+  "name": "Good & Faithful Books",
+  "url": "https://goodandfaithfulbooks.com/",
+  "logo": "https://goodandfaithfulbooks.com/img/logo.png",
+  "email": "hello@goodandfaithfulbooks.com",
+  "founder": [
+   {
+    "@type": "Person",
+    "name": "David Bergqvist"
+   },
+   {
+    "@type": "Person",
+    "name": "Emelie Bergqvist"
+   }
+  ]
+ }
+}
+</script>
 </head>
 <body>
 <div class="page">
@@ -76,7 +129,7 @@ p{margin:0 0 12px;line-height:1.55}
     <a href="../">← Good &amp; Faithful Books</a>
     <div class="stats"><span id="sMoney">$5.00</span><span id="sDay">Day 1/7</span></div>
   </div>
-  <main><div class="card" id="screen"></div></main>
+  <main><div class="card" id="screen"><noscript><h1>Penny's Lemonade Stand</h1><p>Penny's Lemonade Stand is a free browser game for kids 7 and up. Pick a recipe, set your price, watch the weather and decide whether to help a neighbor in need. The game needs JavaScript.</p></noscript></div></main>
 </div>
 
 <script>
