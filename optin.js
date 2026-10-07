@@ -11,17 +11,19 @@ document.getElementById("optin").addEventListener("submit", function (e) {
   var email = f.email.value.trim();
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { msg.textContent = sv ? "Skriv en giltig e-postadress." : "Please enter a valid email address."; return; }
   if (!document.getElementById("samtycke").checked) { msg.textContent = sv ? "Kryssa i rutan så att vi får mejla dig." : "Please tick the box so we're allowed to email you."; return; }
-  var btn = f.querySelector("button"); btn.disabled = true; btn.textContent = sv ? "Skickar..." : "Sending...";
+  var btn = f.querySelector("button"), label = btn.textContent; btn.disabled = true; btn.textContent = sv ? "Skickar..." : "Sending...";
   var kalla = new URLSearchParams(location.search).get("src") || "website";
   fetch(API, {
     method: "POST", headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email: email, namn: f.namn.value.trim() || undefined, konto: f.dataset.konto || "bocker", magnet: f.dataset.magnet || "money-adventure-pack", samtycke: true, kalla: kalla, webbplats: f.webbplats.value || undefined })
   }).then(function (r) {
     if (!r.ok) throw new Error();
+    // Intresseanmälan (t.ex. tröjorna): visa tack på sidan i stället för paketets tacksida.
+    if (f.dataset.done) { f.innerHTML = "<p class=\"msg\" role=\"status\"></p>"; f.firstChild.textContent = f.dataset.done; return; }
     location.href = f.dataset.thanks || ((document.body.dataset.root || "") + "thanks/");
   }).catch(function () {
     msg.textContent = sv ? "Något gick fel. Försök igen om en stund." : "Something went wrong. Please try again in a minute.";
-    btn.disabled = false; btn.textContent = sv ? "Skicka gratispaketet" : "Send me the free pack";
+    btn.disabled = false; btn.textContent = label;
   });
 });
 
