@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Läxportalen</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⭐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="stil.css">
+</head>
+<body>
+<div class="page"><div class="wrap" id="app"></div></div>
+
+<script src="config.js"></script>
+<script src="motor.js"></script>
+<script src="laxor/index.js"></script>
+<script>
+const { $, el, esc, data, spara, laxdata, ljud } = LP;
+const app = $('#app');
+
+// ---------- PIN-inloggning ----------
+function visaLogin() {
+  const langd = String(LAXPORTAL_CONFIG.pin).length;
+  app.innerHTML = `
+    <div class="login"><div class="kort">
+      <img class="penny-stor" src="bilder/penny-portratt.jpg" alt="Penny">
+      <h1>${data.namn ? 'Hej ' + esc(data.namn) + '!' : 'Läxportalen'}</h1>
+      <p class="svag">Skriv in din kod</p>
+      <div class="pinprickar">${'<span></span>'.repeat(langd)}</div>
+      <div class="pinpad">
+        ${[1,2,3,4,5,6,7,8,9].map(n => `<button data-n="${n}">${n}</button>`).join('')}
+        <button data-n="sudda" aria-label="Sudda">⌫</button><button data-n="0">0</button><span></span>
+      </div>
+    </div></div>`;
+  let kod = '';
+  const prickar = app.querySelector('.pinprickar');
+  const rita = () => prickar.querySelectorAll('span').forEach((s, i) => s.classList.toggle('fylld', i < kod.length));
+  function tryck(n) {
+    ljud.klick();
+    if (n === 'sudda') kod = kod.slice(0, -1);
+    else if (kod.length < langd) kod += n;
+    rita();
+    if (kod.length === langd) {
+      setTimeout(() => {
+        if (LP.loggaIn(kod)) { ljud.ratt(); start(); }
+        else { ljud.fel(); prickar.classList.remove('skaka'); void prickar.offsetWidth; prickar.classList.add('skaka'); kod = ''; rita(); }
+      }, 180);
+    }
+  }
+  app.querySelectorAll('.pinpad button').forEach(b => b.onclick = () => tryck(b.dataset.n));
+  document.onkeydown = (e) => {
+    if (/^[0-9]$/.test(e.key)) tryck(e.key);
+    else if (e.key === 'Backspace') tryck('sudda');
+  };
+}
+
+// ---------- Första gången: vad heter du? ----------
+function visaNamn() {
+  document.onkeydown = null;
+  app.innerHTML = `
+    <div class="login"><div class="kort">
+      <img class="penny-stor" src="bilder/penny-portratt.jpg" alt="Penny">
+      <h1>Hej! Jag heter Penny.</h1>
+      <p class="svag">Vad heter du?</p>
+      <input class="namnfalt" maxlength="20" autocomplete="off" autofocus>
+      <button class="knapp" id="ok">Kör! 🚀</button>
+    </div></div>`;
+  const falt = app.querySelector('.namnfalt');
+  const ok = () => {
+    const n = falt.value.trim();
+    if (!n) { falt.focus(); return; }
+    data.namn = n.charAt(0).toUpperCase() + n.slice(1);
+    spara();
+    ljud.ratt();
+    LP.konfetti({ antal: 80 });
+    visaPortal();
+  };
+  app.querySelector('#ok').onclick = ok;
+  falt.onkeydown = (e) => { if (e.key === 'Enter') ok(); };
+  setTimeout(() => falt.focus(), 50);
+}
+
+// ---------- Portalen ----------
+function laxProcent(meta) {
+  const d = laxdata(meta.id);
+  if (d.klar) return 100;
+  const st = Object.values(d.stjarnor).reduce((a, b) => a + b, 0);
+  const max = (meta.antalLagen || 9) * 3;
+  return Math.min(95, Math.round((st / max) * 95));
+}
+function laxkort(meta) {
+  const d = laxdata(meta.id);
+  const st = Object.values(d.stjarnor).reduce((a, b) => a + b, 0);
+  return `<button class="laxkort" style="--f:${meta.farg}" data-id="${meta.id}">
+    ${d.klar ? '<span class="stampel">KLAR ✓</span>' : ''}
+    <div class="ikon">${meta.ikon}</div>
+    <h3>${esc(meta.titel)}</h3>
+    <p>${esc(meta.kort)}</p>
+    <div class="framsteg"><i style="width:${laxProcent(meta)}%"></i></div>
+    <div class="rad"><span>⭐ ${st} stjärnor</span><span>${d.klar ? '🏆 Provet klart!' : 'Provet återstår'}</span></div>
+  </button>`;
+}
+function visaPortal() {
+  document.onkeydown = null;
+  const aktiva = LAXOR_LISTA.filter(m => !laxdata(m.id).klar);
+  const klara = LAXOR_LISTA.filter(m => laxdata(m.id).klar);
+  const timme = new Date().getHours();
+  const hej = timme < 10 ? 'God morgon' : timme < 18 ? 'Hej' : 'God kväll';
+  app.innerHTML = `
+    <div class="toppbar">
+      <span class="spacer"></span>
+      <span class="pill"><span class="stj-ikon">★</span> ${LP.totalaStjarnor()}</span>
+      <span class="pill">🏆 ${klara.length}</span>
+    </div>
+    <div class="halsning">
+      <img src="bilder/penny-portratt.jpg" alt="Penny">
+      <div>
+        <h1>${hej} ${esc(data.namn)}!</h1>
+        <p>${aktiva.length ? `Du har ${aktiva.length === 1 ? 'en läxa' : aktiva.length + ' läxor'} att öva på. Välj en!` : 'Alla läxor är klara. Du är en stjärna! ⭐'}</p>
+      </div>
+    </div>
+    ${aktiva.length ? `<div class="rubrikrad"><h2>Mina läxor</h2></div><div class="laxlista">${aktiva.map(laxkort).join('')}</div>` : ''}
+    ${klara.length ? `<div class="rubrikrad"><h2>Klara läxor 🏆</h2></div>
+      <div class="pokalhylla">${klara.map(m => `<span class="pokal"><b>🏆</b>${esc(m.titel)}</span>`).join('')}</div>
+      <div class="laxlista" style="margin-top:16px">${klara.map(laxkort).join('')}</div>` : ''}
+    <button class="vuxenlank" id="vuxen">För vuxna</button>
+  `;
+  app.querySelectorAll('.laxkort').forEach(b => b.onclick = () => { ljud.klick(); location.href = 'spel.html?laxa=' + b.dataset.id; });
+  app.querySelector('#vuxen').onclick = () => visaVuxen();
+  LP.kompis(aktiva.length ? 'Tryck på en läxa så kör vi! 💪' : 'Wow, allt klart! Vänta på nästa läxa från pappa.', { tid: 6000 });
+}
+
+// ---------- För vuxna ----------
+function visaVuxen(redanOk) {
+  LP.gomKompis();
+  if (redanOk !== true) {
+    const kod = prompt('Skriv PIN-koden:');
+    if (kod === null) return;
+    if (String(kod) !== String(LAXPORTAL_CONFIG.pin)) { alert('Fel kod.'); return; }
+  }
+  const s = data.installningar;
+  app.innerHTML = `
+    <div class="toppbar"><button class="tillbaka" id="bak">←</button><h2>För vuxna</h2></div>
+    <div class="kort vuxen">
+      <label><input type="checkbox" id="tala" ${s.talaIProv ? 'checked' : ''}> Uttal (mikrofon) ingår i proven</label>
+      <label><input type="checkbox" id="ljud" ${s.ljud ? 'checked' : ''}> Ljudeffekter</label>
+      <p class="svag">Mikrofonen fungerar i Chrome och Safari. Slå av uttal i proven om den krånglar.</p>
+      <hr style="border:0;border-top:2px solid var(--kant);margin:18px 0">
+      <p><b>Namn:</b> ${esc(data.namn || '')} <button class="knapp liten sekundar" id="namn">Byt namn</button></p>
+      ${LAXOR_LISTA.map(m => `<p><b>${esc(m.titel)}:</b> ${laxdata(m.id).klar ? 'klar ' + (laxdata(m.id).klarDatum || '') : 'inte klar'}, provförsök ${laxdata(m.id).provforsok || 0}
+        <button class="knapp liten sekundar" data-nollstall="${m.id}">Nollställ</button></p>`).join('')}
+    </div>`;
+  app.querySelector('#bak').onclick = visaPortal;
+  app.querySelector('#tala').onchange = (e) => { s.talaIProv = e.target.checked; spara(); };
+  app.querySelector('#ljud').onchange = (e) => { s.ljud = e.target.checked; spara(); };
+  app.querySelector('#namn').onclick = () => { delete data.namn; spara(); visaNamn(); };
+  app.querySelectorAll('[data-nollstall]').forEach(b => b.onclick = () => {
+    if (!confirm('Nollställa all framgång för den här läxan?')) return;
+    delete data.laxor[b.dataset.nollstall]; spara(); visaVuxen(true);
+  });
+}
+
+function start() {
+  if (!LP.arInne()) return visaLogin();
+  if (!data.namn) return visaNamn();
+  visaPortal();
+}
+start();
+</script>
+</body>
+</html>
