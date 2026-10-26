@@ -294,16 +294,36 @@ window.LP = (() => {
   const PEPP = ['Nästan! Testa igen.', 'Ingen fara, vi provar en gång till.', 'Hoppsan! Du klarar det.', 'Bra försök! En gång till.', 'Det där var svårt. Vi kör igen!'];
   const slump = (a) => a[Math.floor(Math.random() * a.length)];
   function bildKompis(vem, humor) { return 'bilder/' + vem + '-' + humor + '.jpg'; }
+  // Alla ansikten laddas i förväg. Ett nytt ansikte visas först när det är helt laddat,
+  // annars ligger det förra kvar (så att det aldrig blir en trasig bild).
+  const laddade = {};
+  function forladda(url, forsok = 0) {
+    if (laddade[url]) return laddade[url];
+    laddade[url] = new Promise((klar) => {
+      const i = new Image();
+      i.onload = () => klar(i.src);
+      i.onerror = () => {
+        delete laddade[url];
+        if (forsok < 2) setTimeout(() => forladda(url, forsok + 1).then(klar), 800);
+        else klar(null);
+      };
+      i.src = forsok ? url + '?r=' + forsok : url;
+    });
+    return laddade[url];
+  }
+  window.addEventListener('load', () => {
+    for (const vem of Object.keys(KOMPISAR)) for (const h of ['glad', 'skrattar', 'fundersam', 'forvanad']) forladda(bildKompis(vem, h));
+  });
   function kompis(text, { vem = 'penny', humor = 'glad', tid = 0 } = {}) {
     let k = $('.kompis');
     if (!k) {
-      k = el('<div class="kompis"><img alt=""><div class="pratbubbla"></div></div>');
+      k = el('<div class="kompis"><img alt="" src="bilder/penny-glad.jpg"><div class="pratbubbla"></div></div>');
       document.body.appendChild(k);
     }
     const img = k.querySelector('img');
     const ny = bildKompis(vem, humor);
-    if (!img.src.endsWith(ny)) img.src = ny;
-    img.alt = KOMPISAR[vem].namn;
+    k._onskad = ny;
+    forladda(ny).then((src) => { if (src && k._onskad === ny && img.src !== src) img.src = src; });
     k.querySelector('.pratbubbla').innerHTML = text;
     k.classList.remove('hopp');
     void k.offsetWidth;
