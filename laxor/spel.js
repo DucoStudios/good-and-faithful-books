@@ -8,7 +8,7 @@
   if (!LP.arInne() || !meta) { location.replace('index.html'); return; }
 
   const s = document.createElement('script');
-  s.src = 'laxor/' + laxId + '.js';
+  s.src = 'laxor/' + laxId + '.js?v=2';
   s.onload = () => starta(LP.laxor[laxId]);
   document.body.appendChild(s);
 
