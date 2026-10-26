@@ -1,4 +1,4 @@
-/* Läxleks ikoner. Grund: Phosphor Icons (MIT), tvåtonsvarianten: tunn kontur i textfärgen och en
+/* Winnidos ikoner. Grund: Phosphor Icons (MIT), tvåtonsvarianten: tunn kontur i textfärgen och en
    mjuk färgad yta (class="f"). Egenritade ikoner (class="s") har samma linjetjocklek, 1,5 px på 24.
    Färger per ställe: klasserna nedan, eller --ikon-fyll (ytan) och --ikon-linje (konturen). */
 .ik { display: inline-block; width: 1.25em; height: 1.25em; vertical-align: -0.22em; flex: none; line-height: 0; color: var(--ikon-linje, currentColor); }
